@@ -59,7 +59,6 @@ void createReport(vector<CmpString *>& set,vector<vector<float>>& pct)
 	
 	OutputInfo.append("\n------------   相似率统计结果(总表)   ------------\n");
 
-	//cout<<"\n------------   相似率统计结果   ------------"<<endl;
 	for(int i=0;i<set.size();i++)
 	{
 		for(int j=0;j<set.size();j++)
@@ -76,7 +75,13 @@ void createReport(vector<CmpString *>& set,vector<vector<float>>& pct)
 	}
 
 	OutputInfo.append("---------    以下作业被列入怀疑名单   ---------\n");
-	//cout<<"---------    以下作业被列入怀疑名单   ---------"<<endl;
+
+	vector<string> level_1;//一模一样
+	vector<string> level_2;//几乎完全相似
+	vector<string> level_3;//非常相似
+	vector<string> level_4;//比较相似
+	vector<string> level_5;//存在小部分相似
+	
 	for(int i=0;i<set.size();i++)
 	{
 		for(int j=0;j<set.size();j++)
@@ -90,11 +95,56 @@ void createReport(vector<CmpString *>& set,vector<vector<float>>& pct)
 				float simipct=pct[i][j];
 				string answer=JudgePct(percent);
 				tmp.Format("%s 与 %s 的相似度为 %f 判断结果为 %s\n",work1.c_str(),work2.c_str(),simipct,answer.c_str());
-	//			cout<<set[i]->getName()<<" 与 "<<set[j]->getName()<<" 相似度 "<<pct[i][j]<<"  "<<JudgePct(percent)<<endl;
-				OutputInfo.append(tmp);
+				if(answer == "一模一样")
+				{
+					level_1.push_back((string)tmp);
+				}else if(answer == "几乎完全相似")
+				{
+					level_2.push_back((string)tmp);
+				}else if(answer == "非常相似")
+				{
+					level_3.push_back((string)tmp);
+				}else if(answer == "比较相似")
+				{
+					level_4.push_back((string)tmp);
+				}else if(answer == "存在小部分相似")
+				{
+					level_5.push_back((string)tmp);
+				}
 			}
 		}
 	}
+
+	OutputInfo.append("#Level 1 #  一模一样：\n\n");
+	for(string& st:level_1)
+	{
+		OutputInfo.append("      "+st);
+	}
+
+	OutputInfo.append("#Level 2 #  几乎完全相似：\n\n");
+	for(string& st:level_2)
+	{
+		OutputInfo.append("      "+st);
+	}
+
+	OutputInfo.append("#Level 3 #  非常相似：\n\n");
+	for(string& st:level_3)
+	{
+		OutputInfo.append("      "+st);
+	}
+
+	OutputInfo.append("#Level 4 #  比较相似：\n\n");
+	for(string& st:level_4)
+	{
+		OutputInfo.append("      "+st);
+	}
+
+	OutputInfo.append("#Level 5 #  存在小部分相似：\n\n");
+	for(string& st:level_5)
+	{
+		OutputInfo.append("      "+st);
+	}
+
 	cout<<OutputInfo<<endl;
 	ToFile(OutputInfo);
 }

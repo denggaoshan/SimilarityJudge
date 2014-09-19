@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main()
+{ int x,y,z,s;
+while(scanf("%d%d%d", &x, &y,&z) != EOF)
+{ if (x>=y)
+ if (x>z) s=x;
+ else s=z;
+else
+ if (y>z) s=y;
+ else s=z;
+printf("%d\n",s);
+}
+return 0;
+}

@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main()
+{
+int max(int x,int y);
+int max(int z,int m);
+int x,y,m,z,f;
+while(scanf("%d %d %d",&x,&y,&m)!=EOF)
+{z=max(x,y);
+f=max(z,m);
+printf("%d\n",f);
+}
+return 0;
+}
+int max(int a,int b)
+{ int c;
+if(a>b)c=a;
+else c=b;
+return(c);
+}
