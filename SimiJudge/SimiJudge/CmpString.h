@@ -12,11 +12,16 @@ class CmpString
 protected:
 	string CmpStr;
 	string fname;
+
+	string OutputInfo;
+
 public:
+	float CalcSimilar(const CmpString& other); //计算相似率
+
 	virtual void getCmpStr(string filename)=0;
-	const string getName(){return fname;};  //获得文件名
-	const string getCmpStr(){return CmpStr;};//获得等效代码
-	float CalcSimilar(const CmpString& other);
+	string getName(){return fname;};  //获得文件名
+	string getCmpStr(){return CmpStr;};//获得等效代码
+
 };
 
 class CppWork:public CmpString

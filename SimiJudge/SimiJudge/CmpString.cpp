@@ -79,7 +79,6 @@ float CmpString::CalcSimilar(const CmpString& other)
 	vector<vector<int>>data;
 	data.resize(line+1);
 
-
 	cout<<"\n正在对"<<getName()<<" 与 "<<other.fname<<"等效代码进行编辑距离分析。。。。"<<endl;
 
 	for(int i=0;i<line+1;i++)
@@ -111,11 +110,13 @@ float CmpString::CalcSimilar(const CmpString& other)
 	distancePct=(float)distance/sum;
 
 	cout<<"-------"<<"对"<<getName()<<" 与 "<<other.fname<<"的分析报告  -------"<<endl;
+
 //	cout<<"字符串a的等效代码结构长度为 ：" <<a.length()<<endl;
 //	cout<<"字符串b的等效代码结构长度为 ：" <<b.length()<<endl;
 //	cout<<"字符串a,b的等效代码结构长度之差为 ：" <<distance<<"  对应 100% 完全相关"<<endl;
 //	cout<<"字符串a,b的等效代码结构长度之和为 ：" <<sum<<"  对应0% 毫不相关"<<endl; 
 //	cout<<"由字符串a修改到字符串b需要的步长:"<<times<<endl;
+
 	cout<<"编辑距离相似率 "<<percent<<endl;
 	cout<<"相差率 "<<distancePct<<endl;
 
@@ -320,6 +321,7 @@ void CmpStrCreator::CmpRecovery(CmpString* rec)
 {
 	delete(rec);
 }
+
 
 CmpString* CmpStrCreator::createCmpString(const string& filename)
 {

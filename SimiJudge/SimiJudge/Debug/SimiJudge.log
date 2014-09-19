@@ -1,30 +1,19 @@
-﻿生成启动时间为 14-9-18 22:02:01。
+﻿生成启动时间为 14-9-19 9:41:35。
      1>项目“D:\我的文档\GitHub\SimilarityJudge\SimiJudge\SimiJudge\SimiJudge.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         D:\VS2012\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt CmpString.cpp main.cpp
+         D:\VS2012\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(49): warning C4018: “<”: 有符号/无符号不匹配
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(54): warning C4018: “<”: 有符号/无符号不匹配
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(56): warning C4018: “<”: 有符号/无符号不匹配
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(64): warning C4018: “<”: 有符号/无符号不匹配
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(66): warning C4018: “<”: 有符号/无符号不匹配
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(77): warning C4018: “<”: 有符号/无符号不匹配
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(78): warning C4018: “<”: 有符号/无符号不匹配
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(88): warning C4018: “<”: 有符号/无符号不匹配
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(45): warning C4101: “posj”: 未引用的局部变量
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(45): warning C4101: “posi”: 未引用的局部变量
-         CmpString.cpp
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\cmpstring.cpp(43): warning C4305: “return”: 从“double”到“float”截断
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\cmpstring.cpp(47): warning C4305: “return”: 从“double”到“float”截断
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\cmpstring.cpp(51): warning C4305: “return”: 从“double”到“float”截断
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\cmpstring.cpp(55): warning C4305: “return”: 从“double”到“float”截断
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\cmpstring.cpp(63): warning C4305: “return”: 从“double”到“float”截断
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\cmpstring.cpp(67): warning C4305: “return”: 从“double”到“float”截断
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\cmpstring.cpp(69): warning C4305: “return”: 从“double”到“float”截断
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\cmpstring.cpp(104): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\cmpstring.cpp(140): warning C4101: “posEnd”: 未引用的局部变量
-     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\cmpstring.cpp(186): warning C4101: “posEnd”: 未引用的局部变量
-         正在生成代码...
+         _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(63): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(65): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(80): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(82): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(119): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(124): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(126): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(136): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(114): warning C4101: “posj”: 未引用的局部变量
+     1>d:\我的文档\github\similarityjudge\simijudge\simijudge\main.cpp(114): warning C4101: “posi”: 未引用的局部变量
        Link:
          D:\VS2012\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\我的文档\GitHub\SimilarityJudge\SimiJudge\Debug\SimiJudge.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\我的文档\GitHub\SimilarityJudge\SimiJudge\Debug\SimiJudge.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\我的文档\GitHub\SimilarityJudge\SimiJudge\Debug\SimiJudge.lib" /MACHINE:X86 Debug\CmpString.obj
          Debug\main.obj
@@ -33,4 +22,4 @@
 
 生成成功。
 
-已用时间 00:00:03.64
+已用时间 00:00:01.83

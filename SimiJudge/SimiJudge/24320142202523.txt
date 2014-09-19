@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+	int max(int x,int y,int z)
+	{
+		int m;
+		if(x>y)
+			if(y>z) m=x;
+			else if (x>z) m=x;
+			else m=z;
+		else if (y>z) m=y;
+		    else if (y>z) m=y;
+			else m=z;
+		return m;
+	}
+	int main()
+{
+	int a,b,c,d;
+	while (scanf("%d %d %d",&a,&b,&c)!=EOF)
+	{
+		d=max(a,b,c);
+		printf("%d\n",d);
+	}
+	return 0;
+}

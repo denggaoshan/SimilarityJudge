@@ -1,0 +1,13 @@
+#include<stdio.h>
+int main()
+{
+  int a,b,c,d;
+  while(scanf("%d %d %d",&a,&b,&c)!=EOF)
+  {
+   if(a>b)d=a;
+   else d=b;
+   if(c>d)d=c;
+   printf("%d\n",d);
+  }
+  return 0;
+ }  
