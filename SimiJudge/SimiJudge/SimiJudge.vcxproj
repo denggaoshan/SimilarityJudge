@@ -66,9 +66,11 @@
   <ItemGroup>
     <ClCompile Include="CmpString.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ReportMaker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CmpString.h" />
+    <ClInclude Include="ReportMaker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

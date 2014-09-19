@@ -5,7 +5,7 @@
 
 using namespace std;
 
-string JudgePct(float percent)
+string CmpString::JudgePct(float percent)
 {
 	string result;
 	if(percent<=0.88)

@@ -1,3 +1,5 @@
+#pragma once
+#define _AFXDLL
 #include <string>
 
 using namespace std;
@@ -21,6 +23,8 @@ public:
 	virtual void getCmpStr(string filename)=0;
 	string getName(){return fname;};  //获得文件名
 	string getCmpStr(){return CmpStr;};//获得等效代码
+
+	static string JudgePct(float percent); //获得判断结果
 
 };
 
@@ -53,4 +57,3 @@ public:
 };
 
 
-string JudgePct(float percent);

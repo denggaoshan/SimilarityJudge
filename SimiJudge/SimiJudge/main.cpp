@@ -1,14 +1,17 @@
 #define _AFXDLL
-#include "CmpString.h"
+
 #include <iostream>
 #include <string>
 #include <vector>
 #include <fstream>
 #include <afx.h>
 
+#include "CmpString.h"
+#include "ReportMaker.h"
+
 using namespace std;
 
-
+/*读取当前目录下的所有文件*/
 int readFile(vector<CmpString *>& set)
 {
 	CmpStrCreator factory;
@@ -49,104 +52,29 @@ void ToFile(string report)
 	file.close();
 }
 
-/*产生测试报告，并且保存成文件
-* @param set 作业数组
-* @param pct 相似率
-*/
 void createReport(vector<CmpString *>& set,vector<vector<float>>& pct)
 {
 	string OutputInfo;
-	
-	OutputInfo.append("\n------------   相似率统计结果(总表)   ------------\n");
-
-	for(int i=0;i<set.size();i++)
+	ReportMaker mk(set,pct);
+	if(mk.createReport())
 	{
-		for(int j=0;j<set.size();j++)
-		{
-			CString tmp;
-			
-			if(pct[i][j]!=0)
-				tmp.Format("%.2f ",pct[i][j]);
-			else
-			tmp.Format("     ");
-			OutputInfo.append(tmp);
-		}
-		OutputInfo.append("\n");
+		OutputInfo=mk.getReport();
 	}
-
-	OutputInfo.append("---------    以下作业被列入怀疑名单   ---------\n");
-
-	vector<string> level_1;//一模一样
-	vector<string> level_2;//几乎完全相似
-	vector<string> level_3;//非常相似
-	vector<string> level_4;//比较相似
-	vector<string> level_5;//存在小部分相似
-	
-	for(int i=0;i<set.size();i++)
-	{
-		for(int j=0;j<set.size();j++)
-		{
-			if(pct[i][j]>=0.9)
-			{
-				CString tmp;
-				float percent=pct[i][j];
-				string work1=set[i]->getName();
-				string work2=set[j]->getName();
-				float simipct=pct[i][j];
-				string answer=JudgePct(percent);
-				tmp.Format("%s 与 %s 的相似度为 %f 判断结果为 %s\n",work1.c_str(),work2.c_str(),simipct,answer.c_str());
-				if(answer == "一模一样")
-				{
-					level_1.push_back((string)tmp);
-				}else if(answer == "几乎完全相似")
-				{
-					level_2.push_back((string)tmp);
-				}else if(answer == "非常相似")
-				{
-					level_3.push_back((string)tmp);
-				}else if(answer == "比较相似")
-				{
-					level_4.push_back((string)tmp);
-				}else if(answer == "存在小部分相似")
-				{
-					level_5.push_back((string)tmp);
-				}
-			}
-		}
-	}
-
-	OutputInfo.append("#Level 1 #  一模一样：\n\n");
-	for(string& st:level_1)
-	{
-		OutputInfo.append("      "+st);
-	}
-
-	OutputInfo.append("#Level 2 #  几乎完全相似：\n\n");
-	for(string& st:level_2)
-	{
-		OutputInfo.append("      "+st);
-	}
-
-	OutputInfo.append("#Level 3 #  非常相似：\n\n");
-	for(string& st:level_3)
-	{
-		OutputInfo.append("      "+st);
-	}
-
-	OutputInfo.append("#Level 4 #  比较相似：\n\n");
-	for(string& st:level_4)
-	{
-		OutputInfo.append("      "+st);
-	}
-
-	OutputInfo.append("#Level 5 #  存在小部分相似：\n\n");
-	for(string& st:level_5)
-	{
-		OutputInfo.append("      "+st);
-	}
-
 	cout<<OutputInfo<<endl;
 	ToFile(OutputInfo);
+}
+
+//判断相似率 输出pct中
+void JudegeSimilarity(vector<CmpString *>& allWorks,vector<vector<float>>& pct)
+{
+	for(int i=0;i<allWorks.size();i++)
+	{
+		for(int j=i+1;j<allWorks.size();j++)
+		{
+			float percent = allWorks[i]->CalcSimilar(*(allWorks[j]));
+			pct[i][j]=percent;
+		}
+	}
 }
 
 int main()
@@ -157,7 +85,6 @@ int main()
 	
 	cout<<"---------  作业相似度分析程序  ---------"<<endl;
 	cout<<"1. 正在读取名单。。。"<<endl;
-
 	cout<<"读取到了 "<<readFile(allWorks)<<"个文件"<<endl;
 
 	float maxpercent=-100;
@@ -171,14 +98,7 @@ int main()
 
 	cout<<"2. 开始分析中。。。。。。"<<endl;
 	
-	for(int i=0;i<allWorks.size();i++)
-	{
-		for(int j=i+1;j<allWorks.size();j++)
-		{
-			float percent = allWorks[i]->CalcSimilar(*(allWorks[j]));
-			pct[i][j]=percent;
-		}
-	}
+	JudegeSimilarity(allWorks,pct); //交叉两两之间计算相似度 存到pct中
 
 	createReport(allWorks,pct); // 将结果输出到报告文件
 
